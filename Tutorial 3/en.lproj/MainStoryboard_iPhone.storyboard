@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4511" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="kYn-Hr-MJq">
+    <dependencies>
+        <deployment defaultVersion="1552" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3745"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="3nc-d3-XH9">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="25z-hu-OZW" sceneMemberID="firstResponder"/>
+                <viewController id="kYn-Hr-MJq" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0Ty-bC-4gq"/>
+                        <viewControllerLayoutGuide type="bottom" id="fxE-st-Ryl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JOS-rK-Hts">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0dR-Db-Wxo" userLabel="VideoContainer">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <subviews>
+                                    <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="YVj-fp-BtA" userLabel="Video" customClass="EaglUIView">
+                                        <rect key="frame" x="-160" y="12" width="640" height="480"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="640" id="9zy-ya-q8u"/>
+                                            <constraint firstAttribute="height" constant="480" id="DNz-za-Lsb"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FJH-6I-acF" userLabel="Right Analogue Stick" customClass="JSAnalogueStick">
+                                        <rect key="frame" x="20" y="380" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BRh-El-6EI" userLabel="Left Analogue Stick" customClass="JSAnalogueStick">
+                                        <rect key="frame" x="200" y="380" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="BRh-El-6EI" secondAttribute="trailing" constant="20" id="11i-5z-nuq"/>
+                                    <constraint firstAttribute="centerY" secondItem="YVj-fp-BtA" secondAttribute="centerY" id="5B7-CE-mxw"/>
+                                    <constraint firstAttribute="bottom" secondItem="FJH-6I-acF" secondAttribute="bottom" constant="24" id="AlY-LV-fZe"/>
+                                    <constraint firstAttribute="bottom" secondItem="BRh-El-6EI" secondAttribute="bottom" constant="24" id="LFf-cu-RjU"/>
+                                    <constraint firstAttribute="centerX" secondItem="YVj-fp-BtA" secondAttribute="centerX" id="mCK-0x-q1w"/>
+                                    <constraint firstItem="FJH-6I-acF" firstAttribute="leading" secondItem="0dR-Db-Wxo" secondAttribute="leading" constant="20" id="pfu-jC-AFV"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Initializing..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="8wd-E5-Owx" userLabel="Message">
+                                <rect key="frame" x="20" y="504" width="280" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="WIW-Im-XnF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <toolbar clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o22-1p-nvT">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="BPU-1t-gy3"/>
+                                    <barButtonItem systemItem="play" id="6LZ-7a-xKf">
+                                        <connections>
+                                            <action selector="play:" destination="kYn-Hr-MJq" id="hIx-MW-CFA"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="pause" id="bfY-YY-jiu">
+                                        <connections>
+                                            <action selector="pause:" destination="kYn-Hr-MJq" id="dQ5-mO-cMh"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="hSc-4x-myS"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8wd-E5-Owx" firstAttribute="bottom" secondItem="o22-1p-nvT" secondAttribute="top" constant="8" symbolic="YES" id="CHF-CI-6CL"/>
+                            <constraint firstItem="8wd-E5-Owx" firstAttribute="top" secondItem="0dR-Db-Wxo" secondAttribute="bottom" id="IMP-UH-PGT"/>
+                            <constraint firstItem="0dR-Db-Wxo" firstAttribute="trailing" secondItem="JOS-rK-Hts" secondAttribute="trailing" id="MMJ-ra-NNH"/>
+                            <constraint firstAttribute="trailing" secondItem="8wd-E5-Owx" secondAttribute="trailing" constant="20" symbolic="YES" id="WDw-jT-tbz"/>
+                            <constraint firstItem="o22-1p-nvT" firstAttribute="leading" secondItem="JOS-rK-Hts" secondAttribute="leading" constant="20" symbolic="YES" id="Zvb-2h-v7A"/>
+                            <constraint firstItem="0dR-Db-Wxo" firstAttribute="leading" secondItem="JOS-rK-Hts" secondAttribute="leading" id="bfN-MR-7nC"/>
+                            <constraint firstItem="o22-1p-nvT" firstAttribute="bottom" secondItem="JOS-rK-Hts" secondAttribute="bottom" constant="20" symbolic="YES" id="l3D-e3-Z7R"/>
+                            <constraint firstItem="8wd-E5-Owx" firstAttribute="leading" secondItem="JOS-rK-Hts" secondAttribute="leading" constant="20" symbolic="YES" id="lwj-ty-IXl"/>
+                            <constraint firstItem="o22-1p-nvT" firstAttribute="trailing" secondItem="JOS-rK-Hts" secondAttribute="trailing" constant="20" symbolic="YES" id="mL0-QH-ra6"/>
+                            <constraint firstItem="0dR-Db-Wxo" firstAttribute="top" secondItem="JOS-rK-Hts" secondAttribute="top" id="qsc-BJ-NM7"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="message_label" destination="8wd-E5-Owx" id="7Xw-cg-3hH"/>
+                        <outlet property="pause_button" destination="bfY-YY-jiu" id="GBf-vm-mbR"/>
+                        <outlet property="play_button" destination="6LZ-7a-xKf" id="Tk2-4w-9Px"/>
+                        <outlet property="video_container_view" destination="0dR-Db-Wxo" id="buw-S2-Ctk"/>
+                        <outlet property="video_view" destination="YVj-fp-BtA" id="Qk6-Be-oIR"/>
+                    </connections>
+                </viewController>
+            </objects>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
