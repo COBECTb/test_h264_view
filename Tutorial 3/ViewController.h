@@ -1,7 +1,8 @@
 #import <UIKit/UIKit.h>
 #import "GStreamerBackendDelegate.h"
+#import "JSAnalogueStick.h"
 
-@interface ViewController : UIViewController <GStreamerBackendDelegate> {
+@interface ViewController : UIViewController <GStreamerBackendDelegate,JSAnalogueStickDelegate> {
     IBOutlet UILabel *message_label;
     IBOutlet UIBarButtonItem *play_button;
     IBOutlet UIBarButtonItem *pause_button;
@@ -10,6 +11,8 @@
     IBOutlet NSLayoutConstraint *video_width_constraint;
     IBOutlet NSLayoutConstraint *video_height_constraint;
 }
+@property (weak, nonatomic) IBOutlet JSAnalogueStick *LeftAS;
+@property (weak, nonatomic) IBOutlet JSAnalogueStick *RightAS;
 
 -(IBAction) play:(id)sender;
 -(IBAction) pause:(id)sender;

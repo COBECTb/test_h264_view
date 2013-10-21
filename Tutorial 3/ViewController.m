@@ -26,8 +26,10 @@
     /* Make these constant for now, later tutorials will change them */
     media_width = 320;
     media_height = 240;
-
+    _LeftAS.number = 1;
+    _RightAS.number = 2;
     gst_backend = [[GStreamerBackend alloc] init:self videoView:video_view];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,6 +85,20 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         message_label.text = message;
     });
+}
+
+#pragma mark - JSAnalogueStickDelegate
+
+- (void)analogueStickDidChangeValue:(JSAnalogueStick *)analogueStick
+{
+    if(analogueStick.number == 1)
+    {
+        NSLog([NSString stringWithFormat:@"Left: %.1f , %.1f", self->_LeftAS.xValue, self->_LeftAS.yValue]);
+    }
+    else
+    {
+        NSLog([NSString stringWithFormat:@"Right: %.1f , %.1f", self->_RightAS.xValue, self->_RightAS.yValue]);
+    }
 }
 
 @end

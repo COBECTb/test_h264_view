@@ -8,7 +8,6 @@
         <!--View Controller-->
         <scene sceneID="3nc-d3-XH9">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="25z-hu-OZW" sceneMemberID="firstResponder"/>
                 <viewController id="kYn-Hr-MJq" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0Ty-bC-4gq"/>
@@ -29,15 +28,21 @@
                                             <constraint firstAttribute="height" constant="480" id="DNz-za-Lsb"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FJH-6I-acF" userLabel="Right Analogue Stick" customClass="JSAnalogueStick">
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FJH-6I-acF" userLabel="LAnalogue Stick" customClass="JSAnalogueStick">
                                         <rect key="frame" x="20" y="380" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="kYn-Hr-MJq" id="9Xm-Qt-aQ3"/>
+                                        </connections>
                                     </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BRh-El-6EI" userLabel="Left Analogue Stick" customClass="JSAnalogueStick">
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BRh-El-6EI" userLabel="RAnalogue Stick" customClass="JSAnalogueStick">
                                         <rect key="frame" x="200" y="380" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="kYn-Hr-MJq" id="ir4-hC-0tk"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -93,6 +98,8 @@
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="LeftAS" destination="FJH-6I-acF" id="sSs-Pq-S6v"/>
+                        <outlet property="RightAS" destination="BRh-El-6EI" id="m6T-jw-xsL"/>
                         <outlet property="message_label" destination="8wd-E5-Owx" id="7Xw-cg-3hH"/>
                         <outlet property="pause_button" destination="bfY-YY-jiu" id="GBf-vm-mbR"/>
                         <outlet property="play_button" destination="6LZ-7a-xKf" id="Tk2-4w-9Px"/>
@@ -100,6 +107,7 @@
                         <outlet property="video_view" destination="YVj-fp-BtA" id="Qk6-Be-oIR"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="25z-hu-OZW" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>

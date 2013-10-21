@@ -22,6 +22,7 @@
 @property (nonatomic, readonly) CGFloat xValue;
 @property (nonatomic, readonly) CGFloat yValue;
 @property (nonatomic, assign) BOOL invertedYAxis;
+@property (nonatomic, assign) int number;
 
 @property (nonatomic, assign) IBOutlet id <JSAnalogueStickDelegate> delegate;
 
