@@ -13,6 +13,7 @@
 		826F50B6180DB50C005BD257 /* analogue_handle.png in Resources */ = {isa = PBXBuildFile; fileRef = 826F50B2180DB50C005BD257 /* analogue_handle.png */; };
 		826F50B7180DB50C005BD257 /* analogue_handle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 826F50B3180DB50C005BD257 /* analogue_handle@2x.png */; };
 		826F50BA180DB544005BD257 /* JSAnalogueStick.m in Sources */ = {isa = PBXBuildFile; fileRef = 826F50B9180DB544005BD257 /* JSAnalogueStick.m */; };
+		82EADEEB1817CC9F003C3C80 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82EADEEA1817CC9F003C3C80 /* MobileCoreServices.framework */; };
 		C68C528A174D13EB007A0729 /* fonts.conf in Resources */ = {isa = PBXBuildFile; fileRef = C68C5287174D13EB007A0729 /* fonts.conf */; };
 		C68C528B174D13EB007A0729 /* gst_ios_init.m in Sources */ = {isa = PBXBuildFile; fileRef = C68C5288174D13EB007A0729 /* gst_ios_init.m */; };
 		C68C528C174D13EB007A0729 /* Ubuntu-R.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C68C5289174D13EB007A0729 /* Ubuntu-R.ttf */; };
@@ -45,6 +46,7 @@
 		826F50B3180DB50C005BD257 /* analogue_handle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "analogue_handle@2x.png"; sourceTree = "<group>"; };
 		826F50B8180DB544005BD257 /* JSAnalogueStick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSAnalogueStick.h; sourceTree = "<group>"; };
 		826F50B9180DB544005BD257 /* JSAnalogueStick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSAnalogueStick.m; sourceTree = "<group>"; };
+		82EADEEA1817CC9F003C3C80 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		C67B40CC172EBEA3008359CC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C67B40CE172EBEA3008359CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		C67B40D0172EBEA3008359CC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
@@ -83,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82EADEEB1817CC9F003C3C80 /* MobileCoreServices.framework in Frameworks */,
 				826F50AF180DB439005BD257 /* libiconv.dylib in Frameworks */,
 				C6B6126017395CF2003FC410 /* UIKit.framework in Frameworks */,
 				C6B6126117395CF2003FC410 /* Foundation.framework in Frameworks */,
@@ -114,6 +117,7 @@
 		C67B40CB172EBEA3008359CC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				82EADEEA1817CC9F003C3C80 /* MobileCoreServices.framework */,
 				826F50AD180DB3F9005BD257 /* libiconv.dylib */,
 				C67B40CC172EBEA3008359CC /* UIKit.framework */,
 				C67B40CE172EBEA3008359CC /* Foundation.framework */,
