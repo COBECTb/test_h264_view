@@ -13,6 +13,25 @@
 		826F50B6180DB50C005BD257 /* analogue_handle.png in Resources */ = {isa = PBXBuildFile; fileRef = 826F50B2180DB50C005BD257 /* analogue_handle.png */; };
 		826F50B7180DB50C005BD257 /* analogue_handle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 826F50B3180DB50C005BD257 /* analogue_handle@2x.png */; };
 		826F50BA180DB544005BD257 /* JSAnalogueStick.m in Sources */ = {isa = PBXBuildFile; fileRef = 826F50B9180DB544005BD257 /* JSAnalogueStick.m */; };
+		827993AA1829207A00767FA1 /* dPad-Down.png in Resources */ = {isa = PBXBuildFile; fileRef = 827993961829207A00767FA1 /* dPad-Down.png */; };
+		827993AB1829207A00767FA1 /* dPad-Down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 827993971829207A00767FA1 /* dPad-Down@2x.png */; };
+		827993AC1829207A00767FA1 /* dPad-DownLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 827993981829207A00767FA1 /* dPad-DownLeft.png */; };
+		827993AD1829207A00767FA1 /* dPad-DownLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 827993991829207A00767FA1 /* dPad-DownLeft@2x.png */; };
+		827993AE1829207A00767FA1 /* dPad-DownRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 8279939A1829207A00767FA1 /* dPad-DownRight.png */; };
+		827993AF1829207A00767FA1 /* dPad-DownRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8279939B1829207A00767FA1 /* dPad-DownRight@2x.png */; };
+		827993B01829207A00767FA1 /* dPad-Left.png in Resources */ = {isa = PBXBuildFile; fileRef = 8279939C1829207A00767FA1 /* dPad-Left.png */; };
+		827993B11829207A00767FA1 /* dPad-Left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8279939D1829207A00767FA1 /* dPad-Left@2x.png */; };
+		827993B21829207A00767FA1 /* dPad-None.png in Resources */ = {isa = PBXBuildFile; fileRef = 8279939E1829207A00767FA1 /* dPad-None.png */; };
+		827993B31829207A00767FA1 /* dPad-None@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8279939F1829207A00767FA1 /* dPad-None@2x.png */; };
+		827993B41829207A00767FA1 /* dPad-Right.png in Resources */ = {isa = PBXBuildFile; fileRef = 827993A01829207A00767FA1 /* dPad-Right.png */; };
+		827993B51829207A00767FA1 /* dPad-Right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 827993A11829207A00767FA1 /* dPad-Right@2x.png */; };
+		827993B61829207A00767FA1 /* dPad-Up.png in Resources */ = {isa = PBXBuildFile; fileRef = 827993A21829207A00767FA1 /* dPad-Up.png */; };
+		827993B71829207A00767FA1 /* dPad-Up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 827993A31829207A00767FA1 /* dPad-Up@2x.png */; };
+		827993B81829207A00767FA1 /* dPad-UpLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 827993A41829207A00767FA1 /* dPad-UpLeft.png */; };
+		827993B91829207A00767FA1 /* dPad-UpLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 827993A51829207A00767FA1 /* dPad-UpLeft@2x.png */; };
+		827993BA1829207A00767FA1 /* dPad-UpRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 827993A61829207A00767FA1 /* dPad-UpRight.png */; };
+		827993BB1829207A00767FA1 /* dPad-UpRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 827993A71829207A00767FA1 /* dPad-UpRight@2x.png */; };
+		827993BC1829207A00767FA1 /* JSDPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 827993A91829207A00767FA1 /* JSDPad.m */; };
 		82EADEEB1817CC9F003C3C80 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82EADEEA1817CC9F003C3C80 /* MobileCoreServices.framework */; };
 		C68C528A174D13EB007A0729 /* fonts.conf in Resources */ = {isa = PBXBuildFile; fileRef = C68C5287174D13EB007A0729 /* fonts.conf */; };
 		C68C528B174D13EB007A0729 /* gst_ios_init.m in Sources */ = {isa = PBXBuildFile; fileRef = C68C5288174D13EB007A0729 /* gst_ios_init.m */; };
@@ -40,12 +59,32 @@
 
 /* Begin PBXFileReference section */
 		826F50AD180DB3F9005BD257 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
-		826F50B0180DB50C005BD257 /* analogue_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = analogue_bg.png; sourceTree = "<group>"; };
-		826F50B1180DB50C005BD257 /* analogue_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "analogue_bg@2x.png"; sourceTree = "<group>"; };
-		826F50B2180DB50C005BD257 /* analogue_handle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = analogue_handle.png; sourceTree = "<group>"; };
-		826F50B3180DB50C005BD257 /* analogue_handle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "analogue_handle@2x.png"; sourceTree = "<group>"; };
+		826F50B0180DB50C005BD257 /* analogue_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = analogue_bg.png; path = "Tutorial 3/analogue_bg.png"; sourceTree = "<group>"; };
+		826F50B1180DB50C005BD257 /* analogue_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "analogue_bg@2x.png"; path = "Tutorial 3/analogue_bg@2x.png"; sourceTree = "<group>"; };
+		826F50B2180DB50C005BD257 /* analogue_handle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = analogue_handle.png; path = "Tutorial 3/analogue_handle.png"; sourceTree = "<group>"; };
+		826F50B3180DB50C005BD257 /* analogue_handle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "analogue_handle@2x.png"; path = "Tutorial 3/analogue_handle@2x.png"; sourceTree = "<group>"; };
 		826F50B8180DB544005BD257 /* JSAnalogueStick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSAnalogueStick.h; sourceTree = "<group>"; };
 		826F50B9180DB544005BD257 /* JSAnalogueStick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSAnalogueStick.m; sourceTree = "<group>"; };
+		827993961829207A00767FA1 /* dPad-Down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dPad-Down.png"; path = "Tutorial 3/dPad-Down.png"; sourceTree = "<group>"; };
+		827993971829207A00767FA1 /* dPad-Down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dPad-Down@2x.png"; path = "Tutorial 3/dPad-Down@2x.png"; sourceTree = "<group>"; };
+		827993981829207A00767FA1 /* dPad-DownLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dPad-DownLeft.png"; path = "Tutorial 3/dPad-DownLeft.png"; sourceTree = "<group>"; };
+		827993991829207A00767FA1 /* dPad-DownLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dPad-DownLeft@2x.png"; path = "Tutorial 3/dPad-DownLeft@2x.png"; sourceTree = "<group>"; };
+		8279939A1829207A00767FA1 /* dPad-DownRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dPad-DownRight.png"; path = "Tutorial 3/dPad-DownRight.png"; sourceTree = "<group>"; };
+		8279939B1829207A00767FA1 /* dPad-DownRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dPad-DownRight@2x.png"; path = "Tutorial 3/dPad-DownRight@2x.png"; sourceTree = "<group>"; };
+		8279939C1829207A00767FA1 /* dPad-Left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dPad-Left.png"; path = "Tutorial 3/dPad-Left.png"; sourceTree = "<group>"; };
+		8279939D1829207A00767FA1 /* dPad-Left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dPad-Left@2x.png"; path = "Tutorial 3/dPad-Left@2x.png"; sourceTree = "<group>"; };
+		8279939E1829207A00767FA1 /* dPad-None.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dPad-None.png"; path = "Tutorial 3/dPad-None.png"; sourceTree = "<group>"; };
+		8279939F1829207A00767FA1 /* dPad-None@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dPad-None@2x.png"; path = "Tutorial 3/dPad-None@2x.png"; sourceTree = "<group>"; };
+		827993A01829207A00767FA1 /* dPad-Right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dPad-Right.png"; path = "Tutorial 3/dPad-Right.png"; sourceTree = "<group>"; };
+		827993A11829207A00767FA1 /* dPad-Right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dPad-Right@2x.png"; path = "Tutorial 3/dPad-Right@2x.png"; sourceTree = "<group>"; };
+		827993A21829207A00767FA1 /* dPad-Up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dPad-Up.png"; path = "Tutorial 3/dPad-Up.png"; sourceTree = "<group>"; };
+		827993A31829207A00767FA1 /* dPad-Up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dPad-Up@2x.png"; path = "Tutorial 3/dPad-Up@2x.png"; sourceTree = "<group>"; };
+		827993A41829207A00767FA1 /* dPad-UpLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dPad-UpLeft.png"; path = "Tutorial 3/dPad-UpLeft.png"; sourceTree = "<group>"; };
+		827993A51829207A00767FA1 /* dPad-UpLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dPad-UpLeft@2x.png"; path = "Tutorial 3/dPad-UpLeft@2x.png"; sourceTree = "<group>"; };
+		827993A61829207A00767FA1 /* dPad-UpRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dPad-UpRight.png"; path = "Tutorial 3/dPad-UpRight.png"; sourceTree = "<group>"; };
+		827993A71829207A00767FA1 /* dPad-UpRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "dPad-UpRight@2x.png"; path = "Tutorial 3/dPad-UpRight@2x.png"; sourceTree = "<group>"; };
+		827993A81829207A00767FA1 /* JSDPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSDPad.h; sourceTree = "<group>"; };
+		827993A91829207A00767FA1 /* JSDPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSDPad.m; sourceTree = "<group>"; };
 		82EADEEA1817CC9F003C3C80 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		C67B40CC172EBEA3008359CC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C67B40CE172EBEA3008359CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -97,9 +136,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		827993BD1829208800767FA1 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				826F50B0180DB50C005BD257 /* analogue_bg.png */,
+				826F50B1180DB50C005BD257 /* analogue_bg@2x.png */,
+				826F50B2180DB50C005BD257 /* analogue_handle.png */,
+				826F50B3180DB50C005BD257 /* analogue_handle@2x.png */,
+				827993961829207A00767FA1 /* dPad-Down.png */,
+				827993971829207A00767FA1 /* dPad-Down@2x.png */,
+				827993981829207A00767FA1 /* dPad-DownLeft.png */,
+				827993991829207A00767FA1 /* dPad-DownLeft@2x.png */,
+				8279939A1829207A00767FA1 /* dPad-DownRight.png */,
+				8279939B1829207A00767FA1 /* dPad-DownRight@2x.png */,
+				8279939C1829207A00767FA1 /* dPad-Left.png */,
+				8279939D1829207A00767FA1 /* dPad-Left@2x.png */,
+				8279939E1829207A00767FA1 /* dPad-None.png */,
+				8279939F1829207A00767FA1 /* dPad-None@2x.png */,
+				827993A01829207A00767FA1 /* dPad-Right.png */,
+				827993A11829207A00767FA1 /* dPad-Right@2x.png */,
+				827993A21829207A00767FA1 /* dPad-Up.png */,
+				827993A31829207A00767FA1 /* dPad-Up@2x.png */,
+				827993A41829207A00767FA1 /* dPad-UpLeft.png */,
+				827993A51829207A00767FA1 /* dPad-UpLeft@2x.png */,
+				827993A61829207A00767FA1 /* dPad-UpRight.png */,
+				827993A71829207A00767FA1 /* dPad-UpRight@2x.png */,
+			);
+			name = image;
+			sourceTree = "<group>";
+		};
 		C67B40BE172EBDF1008359CC = {
 			isa = PBXGroup;
 			children = (
+				827993BD1829208800767FA1 /* image */,
 				C6B6126417395CF2003FC410 /* Tutorial 3 */,
 				C67B40CB172EBEA3008359CC /* Frameworks */,
 				C67B40CA172EBEA3008359CC /* Products */,
@@ -130,12 +199,10 @@
 		C6B6126417395CF2003FC410 /* Tutorial 3 */ = {
 			isa = PBXGroup;
 			children = (
+				827993A81829207A00767FA1 /* JSDPad.h */,
+				827993A91829207A00767FA1 /* JSDPad.m */,
 				826F50B8180DB544005BD257 /* JSAnalogueStick.h */,
 				826F50B9180DB544005BD257 /* JSAnalogueStick.m */,
-				826F50B0180DB50C005BD257 /* analogue_bg.png */,
-				826F50B1180DB50C005BD257 /* analogue_bg@2x.png */,
-				826F50B2180DB50C005BD257 /* analogue_handle.png */,
-				826F50B3180DB50C005BD257 /* analogue_handle@2x.png */,
 				C6EB857A173A4D9500C3953D /* EaglUIVIew.h */,
 				C6EB857B173A4D9500C3953D /* EaglUIVIew.m */,
 				C6B6128F17396231003FC410 /* Images */,
@@ -232,22 +299,40 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				827993AC1829207A00767FA1 /* dPad-DownLeft.png in Resources */,
+				827993AE1829207A00767FA1 /* dPad-DownRight.png in Resources */,
+				827993AA1829207A00767FA1 /* dPad-Down.png in Resources */,
+				827993B01829207A00767FA1 /* dPad-Left.png in Resources */,
+				827993AB1829207A00767FA1 /* dPad-Down@2x.png in Resources */,
+				827993B91829207A00767FA1 /* dPad-UpLeft@2x.png in Resources */,
 				C6B6126917395CF2003FC410 /* InfoPlist.strings in Resources */,
 				C6B6127117395CF2003FC410 /* Default.png in Resources */,
+				827993B41829207A00767FA1 /* dPad-Right.png in Resources */,
+				827993AF1829207A00767FA1 /* dPad-DownRight@2x.png in Resources */,
 				826F50B4180DB50C005BD257 /* analogue_bg.png in Resources */,
 				C6B6127317395CF2003FC410 /* Default@2x.png in Resources */,
+				827993B61829207A00767FA1 /* dPad-Up.png in Resources */,
+				827993B71829207A00767FA1 /* dPad-Up@2x.png in Resources */,
 				C6B6127517395CF2003FC410 /* Default-568h@2x.png in Resources */,
+				827993BB1829207A00767FA1 /* dPad-UpRight@2x.png in Resources */,
+				827993B81829207A00767FA1 /* dPad-UpLeft.png in Resources */,
 				826F50B6180DB50C005BD257 /* analogue_handle.png in Resources */,
 				C6B6127817395CF2003FC410 /* MainStoryboard_iPhone.storyboard in Resources */,
 				C6B6127B17395CF2003FC410 /* MainStoryboard_iPad.storyboard in Resources */,
 				826F50B5180DB50C005BD257 /* analogue_bg@2x.png in Resources */,
+				827993B31829207A00767FA1 /* dPad-None@2x.png in Resources */,
 				C6B6129417396231003FC410 /* appicon-3-iPad.png in Resources */,
+				827993B51829207A00767FA1 /* dPad-Right@2x.png in Resources */,
 				826F50B7180DB50C005BD257 /* analogue_handle@2x.png in Resources */,
 				C6B6129517396231003FC410 /* appicon-3-iPad@2x.png in Resources */,
 				C6B6129617396231003FC410 /* appicon-3-iPhone.png in Resources */,
 				C6B6129717396231003FC410 /* appicon-3-iPhone@2x.png in Resources */,
 				C68C528A174D13EB007A0729 /* fonts.conf in Resources */,
+				827993AD1829207A00767FA1 /* dPad-DownLeft@2x.png in Resources */,
+				827993B21829207A00767FA1 /* dPad-None.png in Resources */,
+				827993B11829207A00767FA1 /* dPad-Left@2x.png in Resources */,
 				C68C528C174D13EB007A0729 /* Ubuntu-R.ttf in Resources */,
+				827993BA1829207A00767FA1 /* dPad-UpRight.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6B6126B17395CF2003FC410 /* main.m in Sources */,
+				827993BC1829207A00767FA1 /* JSDPad.m in Sources */,
 				C6B6126F17395CF2003FC410 /* AppDelegate.m in Sources */,
 				C6B6127E17395CF2003FC410 /* ViewController.m in Sources */,
 				826F50BA180DB544005BD257 /* JSAnalogueStick.m in Sources */,
