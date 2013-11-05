@@ -1,6 +1,7 @@
 #import <UIKit/UIKit.h>
 #import "GStreamerBackendDelegate.h"
 #import "JSAnalogueStick.h"
+#import "JSDPad.h"
 
 @interface ViewController : UIViewController <GStreamerBackendDelegate,JSAnalogueStickDelegate,NSStreamDelegate> {
     IBOutlet UILabel *message_label;
@@ -16,7 +17,7 @@
     int cam_y;
 }
 @property (weak, nonatomic) IBOutlet JSAnalogueStick *LeftAS;
-@property (weak, nonatomic) IBOutlet JSAnalogueStick *RightAS;
+@property (weak, nonatomic) IBOutlet JSDPad *RightPad;
 
 -(IBAction) play:(id)sender;
 -(IBAction) pause:(id)sender;

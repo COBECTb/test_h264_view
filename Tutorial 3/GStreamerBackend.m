@@ -140,8 +140,8 @@ static void state_changed_cb (GstBus *bus, GstMessage *msg, GStreamerBackend *se
     g_main_context_push_thread_default(context);
     
     /* Build pipeline */
-    pipeline = gst_parse_launch("udpsrc port=3000 caps=\"application/x-rtp, media=video, clock-rate=90000, encoding-name=H264, sprop-parameter-sets=\\\"Z2QAKK2EBUViuKxUdCAqKxXFYqOhAVFYrisVHQgKisVxWKjoQFRWK4rFR0ICorFcVio6ECSFITk8nyfk/k/J8nm5s00IEkKQnJ5Pk/J/J+T5PNzZprQFAeyAAA\\\\=\\\\=\\\\,aO48sAA\\\\=\\\", payload=96, ssrc=1439016638, clock-base=1156865295, seqnum-base=37654\" ! rtph264depay ! ffdec_h264 ! autovideosink", &error);
-   if (error) {
+    pipeline = gst_parse_launch("udpsrc port=3000 caps=\"application/x-rtp, media=video, clock-rate=90000, encoding-name=H264, sprop-parameter-sets=\\\"Z2QAKK2EBUViuKxUdCAqKxXFYqOhAVFYrisVHQgKisVxWKjoQFRWK4rFR0ICorFcVio6ECSFITk8nyfk/k/J8nm5s00IEkKQnJ5Pk/J/J+T5PNzZprQFAeyAAA\\\\=\\\\=\\\\,aO48sAA\\\\=\\\", payload=96, ssrc=1439016638, clock-base=1156865295, seqnum-base=37654\" ! rtph264depay ! ffdec_h264 ! autovideosink sync=false show-preroll-frame=false max-lateness=0", &error);
+    if (error) {
         gchar *message = g_strdup_printf("Unable to build pipeline: %s", error->message);
         g_clear_error (&error);
         [self setUIMessage:message];

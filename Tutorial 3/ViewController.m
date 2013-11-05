@@ -24,16 +24,14 @@
     
     play_button.enabled = FALSE;
     pause_button.enabled = FALSE;
-    
     cam_x = 25000;
     cam_y = 25000;
     
     /* Make these constant for now, later tutorials will change them */
     media_width = 320;
     media_height = 240;
-    _LeftAS.number = 1;
-    _RightAS.number = 2;
     gst_backend = [[GStreamerBackend alloc] init:self videoView:video_view];
+    printf("viewDidLoad");
     
 }
 
@@ -66,12 +64,9 @@
     
     [outputStream open];
     
-    NSString *response  = [NSString stringWithFormat:@"set pwm1 duty:%d period:476190\n", cam_x];
-    NSLog(response);
-	NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
+    NSData *data= [ViewController makeCommandForPwm:1 withDuty:cam_x andPeriod:476190];
 	[outputStream write:[data bytes] maxLength:[data length]];
-    response  = [NSString stringWithFormat:@"set pwm0 duty:%d period:476190\n", cam_y];
-	data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
+    data= [ViewController makeCommandForPwm:0 withDuty:cam_y andPeriod:476190];
 	[outputStream write:[data bytes] maxLength:[data length]];
 }
 
@@ -122,27 +117,87 @@
 
 - (void)analogueStickDidChangeValue:(JSAnalogueStick *)analogueStick
 {
-    if(analogueStick.number == 1)
-    {
-        NSLog([NSString stringWithFormat:@"Left: %.1f", self->_LeftAS.xValue]);
-        NSLog([NSString stringWithFormat:@"Left: %.1f", self->_LeftAS.yValue]);
-        int ncam_x=cam_x + 500*(self->_LeftAS.xValue)*-1;
-        if(ncam_x<=140000&&ncam_x>=12000) cam_x=ncam_x;
-        NSString *response  = [NSString stringWithFormat:@"set pwm1 duty:%d period:476190\n", cam_x];
-        NSLog(response);
+    NSLog([NSString stringWithFormat:@"Left: %.1f", self->_LeftAS.xValue]);
+    NSLog([NSString stringWithFormat:@"Left: %.1f", self->_LeftAS.yValue]);
+    int ncam_x=cam_x + 500*(self->_LeftAS.xValue)*-1;
+    if(ncam_x<=140000&&ncam_x>=12000) cam_x=ncam_x;
+    NSData *data= [ViewController makeCommandForPwm:1 withDuty:cam_x andPeriod:476190];
+    [outputStream write:[data bytes] maxLength:[data length]];
+    int ncam_y=cam_y + 500*(self->_LeftAS.yValue);
+    if(ncam_y<=52000&&ncam_y>=19000) cam_y=ncam_y;
+    data= [ViewController makeCommandForPwm:0 withDuty:cam_y andPeriod:476190];
+    [outputStream write:[data bytes] maxLength:[data length]];
+}
 
-        int ncam_y=cam_y + 500*(self->_LeftAS.yValue);
-        if(ncam_y<=52000&&ncam_y>=19000) cam_y=ncam_y;
-        NSData *data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
-        [outputStream write:[data bytes] maxLength:[data length]];
-        response  = [NSString stringWithFormat:@"set pwm0 duty:%d period:476190\n", cam_y];
-        data = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
-        [outputStream write:[data bytes] maxLength:[data length]];
-    }
-    else
+- (void)dPad:(JSDPad *)dPad didPressDirection:(JSDPadDirection)direction
+{
+	NSLog(@"Changing direction to: %d", direction);
+    
+    if(direction==JSDPadDirectionUp)
     {
-        NSLog([NSString stringWithFormat:@"Right: %.1f , %.1f", self->_RightAS.xValue, self->_RightAS.yValue]);
+        NSData *data;
+        data= [ViewController makeCommandForGPIO:30 withDirection:"output" andValue:1];
+        [outputStream write:[data bytes] maxLength:[data length]];
+        data= [ViewController makeCommandForGPIO:31 withDirection:"output" andValue:1];
+        [outputStream write:[data bytes] maxLength:[data length]];
+        data= [ViewController makeCommandForGPIO:32 withDirection:"output" andValue:1];
+        [outputStream write:[data bytes] maxLength:[data length]];
+        data= [ViewController makeCommandForGPIO:33 withDirection:"output" andValue:1];
+        [outputStream write:[data bytes] maxLength:[data length]];
     }
+    else if(direction==JSDPadDirectionLeft)
+    {
+        NSData *data;
+        data= [ViewController makeCommandForGPIO:30 withDirection:"output" andValue:1];
+        [outputStream write:[data bytes] maxLength:[data length]];
+        data= [ViewController makeCommandForGPIO:31 withDirection:"output" andValue:1];
+        [outputStream write:[data bytes] maxLength:[data length]];
+        data= [ViewController makeCommandForGPIO:32 withDirection:"output" andValue:0];
+        [outputStream write:[data bytes] maxLength:[data length]];
+        data= [ViewController makeCommandForGPIO:33 withDirection:"output" andValue:0];
+        [outputStream write:[data bytes] maxLength:[data length]];
+    }
+    else if(direction==JSDPadDirectionRight)
+    {
+        NSData *data;
+        data= [ViewController makeCommandForGPIO:30 withDirection:"output" andValue:0];
+        [outputStream write:[data bytes] maxLength:[data length]];
+        data= [ViewController makeCommandForGPIO:31 withDirection:"output" andValue:0];
+        [outputStream write:[data bytes] maxLength:[data length]];
+        data= [ViewController makeCommandForGPIO:32 withDirection:"output" andValue:1];
+        [outputStream write:[data bytes] maxLength:[data length]];
+        data= [ViewController makeCommandForGPIO:33 withDirection:"output" andValue:1];
+        [outputStream write:[data bytes] maxLength:[data length]];
+    }
+}
+
+- (void)dPadDidReleaseDirection:(JSDPad *)dPad
+{
+    NSData *data;
+    data= [ViewController makeCommandForGPIO:30 withDirection:"output" andValue:0];
+    [outputStream write:[data bytes] maxLength:[data length]];
+    data= [ViewController makeCommandForGPIO:31 withDirection:"output" andValue:0];
+    [outputStream write:[data bytes] maxLength:[data length]];
+    data= [ViewController makeCommandForGPIO:32 withDirection:"output" andValue:0];
+    [outputStream write:[data bytes] maxLength:[data length]];
+    data= [ViewController makeCommandForGPIO:33 withDirection:"output" andValue:0];
+    [outputStream write:[data bytes] maxLength:[data length]];
+}
+
++(NSData*)makeCommandForPwm:(int)pwm withDuty:(int)duty andPeriod:(int)period
+{
+    NSString *response  = [NSString stringWithFormat:@"set pwm%d duty:%d period:%d\n",pwm, duty,period];
+    NSLog(response);
+    NSData *nsData = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
+    return nsData;
+}
+
++(NSData*)makeCommandForGPIO:(int)gpio withDirection:(char*)direction andValue:(int)value
+{
+    NSString *response  = [NSString stringWithFormat:@"set con%d %s:%d\n",gpio, direction,value];
+    NSLog(response);
+    NSData *nsData = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
+    return nsData;
 }
 
 @end
