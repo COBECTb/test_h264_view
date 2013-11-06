@@ -32,7 +32,6 @@
     media_height = 240;
     gst_backend = [[GStreamerBackend alloc] init:self videoView:video_view];
     printf("viewDidLoad");
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -74,6 +73,8 @@
 -(IBAction) pause:(id)sender
 {
     [gst_backend pause];
+    [inputStream close];
+    [outputStream close];
 }
 
 - (void)viewDidLayoutSubviews
@@ -119,14 +120,15 @@
 {
     NSLog([NSString stringWithFormat:@"Left: %.1f", self->_LeftAS.xValue]);
     NSLog([NSString stringWithFormat:@"Left: %.1f", self->_LeftAS.yValue]);
-    int ncam_x=cam_x + 500*(self->_LeftAS.xValue)*-1;
-    if(ncam_x<=140000&&ncam_x>=12000) cam_x=ncam_x;
-    NSData *data= [ViewController makeCommandForPwm:1 withDuty:cam_x andPeriod:476190];
-    [outputStream write:[data bytes] maxLength:[data length]];
-    int ncam_y=cam_y + 500*(self->_LeftAS.yValue);
-    if(ncam_y<=52000&&ncam_y>=19000) cam_y=ncam_y;
-    data= [ViewController makeCommandForPwm:0 withDuty:cam_y andPeriod:476190];
-    [outputStream write:[data bytes] maxLength:[data length]];
+    if(_timer.isValid)
+    {
+        if(self->_LeftAS.xValue==0&&self->_LeftAS.yValue==0)
+           [_timer invalidate];
+    }
+    else
+    {
+        _timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(timerFireMethod) userInfo:NULL repeats:true];
+    }
 }
 
 - (void)dPad:(JSDPad *)dPad didPressDirection:(JSDPadDirection)direction
@@ -200,4 +202,15 @@
     return nsData;
 }
 
+- (void)timerFireMethod
+{
+    int ncam_x=cam_x + 500*(self->_LeftAS.xValue)*-1;
+    if(ncam_x<=140000&&ncam_x>=12000) cam_x=ncam_x;
+    NSData *data= [ViewController makeCommandForPwm:1 withDuty:cam_x andPeriod:476190];
+    [outputStream write:[data bytes] maxLength:[data length]];
+    int ncam_y=cam_y + 500*(self->_LeftAS.yValue);
+    if(ncam_y<=52000&&ncam_y>=19000) cam_y=ncam_y;
+    data= [ViewController makeCommandForPwm:0 withDuty:cam_y andPeriod:476190];
+    [outputStream write:[data bytes] maxLength:[data length]];
+}
 @end

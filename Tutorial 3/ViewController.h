@@ -15,6 +15,7 @@
     NSOutputStream *outputStream;
     int cam_x;
     int cam_y;
+    NSTimer *_timer;
 }
 @property (weak, nonatomic) IBOutlet JSAnalogueStick *LeftAS;
 @property (weak, nonatomic) IBOutlet JSDPad *RightPad;
