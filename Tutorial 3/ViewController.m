@@ -12,6 +12,9 @@
 
 @end
 
+int PWM = 0;
+int GPIO = 1;
+
 @implementation ViewController
 
 /*
@@ -24,8 +27,8 @@
     
     play_button.enabled = FALSE;
     pause_button.enabled = FALSE;
-    cam_x = 25000;
-    cam_y = 25000;
+    cam_x = 35930;
+    cam_y = 38540;
     
     /* Make these constant for now, later tutorials will change them */
     media_width = 320;
@@ -47,6 +50,7 @@
     // Create socket pair:
     CFReadStreamRef readStream;
     CFWriteStreamRef writeStream;
+//    CFStringRef remoteHost = CFSTR("178.236.245.50");
     CFStringRef remoteHost = CFSTR("192.168.2.1");
     CFStreamCreatePairWithSocketToHost(NULL, remoteHost, 4444, &readStream, &writeStream);
     inputStream = (__bridge_transfer NSInputStream *)readStream;
@@ -63,10 +67,11 @@
     
     [outputStream open];
     
-    NSData *data= [ViewController makeCommandForPwm:1 withDuty:cam_x andPeriod:476190];
+    NSData *data= [ViewController makeCommandFor:PWM Number:1 andValue:cam_x];
 	[outputStream write:[data bytes] maxLength:[data length]];
-    data= [ViewController makeCommandForPwm:0 withDuty:cam_y andPeriod:476190];
+    data= [ViewController makeCommandFor:PWM Number:0 andValue:cam_y];;
 	[outputStream write:[data bytes] maxLength:[data length]];
+    [gst_backend play];
 }
 
 /* Called when the Pause button is pressed */
@@ -138,37 +143,37 @@
     if(direction==JSDPadDirectionUp)
     {
         NSData *data;
-        data= [ViewController makeCommandForGPIO:30 withDirection:"output" andValue:1];
+        data= [ViewController makeCommandFor:GPIO Number:30 andValue:1];
         [outputStream write:[data bytes] maxLength:[data length]];
-        data= [ViewController makeCommandForGPIO:31 withDirection:"output" andValue:1];
+        data= [ViewController makeCommandFor:GPIO Number:31 andValue:1];
         [outputStream write:[data bytes] maxLength:[data length]];
-        data= [ViewController makeCommandForGPIO:32 withDirection:"output" andValue:1];
+        data= [ViewController makeCommandFor:GPIO Number:32 andValue:1];
         [outputStream write:[data bytes] maxLength:[data length]];
-        data= [ViewController makeCommandForGPIO:33 withDirection:"output" andValue:1];
+        data= [ViewController makeCommandFor:GPIO Number:33 andValue:1];
         [outputStream write:[data bytes] maxLength:[data length]];
     }
     else if(direction==JSDPadDirectionLeft)
     {
         NSData *data;
-        data= [ViewController makeCommandForGPIO:30 withDirection:"output" andValue:1];
+        data= [ViewController makeCommandFor:GPIO Number:30 andValue:1];
         [outputStream write:[data bytes] maxLength:[data length]];
-        data= [ViewController makeCommandForGPIO:31 withDirection:"output" andValue:1];
+        data= [ViewController makeCommandFor:GPIO Number:31 andValue:1];
         [outputStream write:[data bytes] maxLength:[data length]];
-        data= [ViewController makeCommandForGPIO:32 withDirection:"output" andValue:0];
+        data= [ViewController makeCommandFor:GPIO Number:32 andValue:0];
         [outputStream write:[data bytes] maxLength:[data length]];
-        data= [ViewController makeCommandForGPIO:33 withDirection:"output" andValue:0];
+        data= [ViewController makeCommandFor:GPIO Number:33 andValue:0];
         [outputStream write:[data bytes] maxLength:[data length]];
     }
     else if(direction==JSDPadDirectionRight)
     {
         NSData *data;
-        data= [ViewController makeCommandForGPIO:30 withDirection:"output" andValue:0];
+        data= [ViewController makeCommandFor:GPIO Number:30 andValue:0];
         [outputStream write:[data bytes] maxLength:[data length]];
-        data= [ViewController makeCommandForGPIO:31 withDirection:"output" andValue:0];
+        data= [ViewController makeCommandFor:GPIO Number:31 andValue:0];
         [outputStream write:[data bytes] maxLength:[data length]];
-        data= [ViewController makeCommandForGPIO:32 withDirection:"output" andValue:1];
+        data= [ViewController makeCommandFor:GPIO Number:32 andValue:1];
         [outputStream write:[data bytes] maxLength:[data length]];
-        data= [ViewController makeCommandForGPIO:33 withDirection:"output" andValue:1];
+        data= [ViewController makeCommandFor:GPIO Number:33 andValue:1];
         [outputStream write:[data bytes] maxLength:[data length]];
     }
 }
@@ -176,41 +181,40 @@
 - (void)dPadDidReleaseDirection:(JSDPad *)dPad
 {
     NSData *data;
-    data= [ViewController makeCommandForGPIO:30 withDirection:"output" andValue:0];
+    data= [ViewController makeCommandFor:GPIO Number:30 andValue:0];
     [outputStream write:[data bytes] maxLength:[data length]];
-    data= [ViewController makeCommandForGPIO:31 withDirection:"output" andValue:0];
+    data= [ViewController makeCommandFor:GPIO Number:31 andValue:0];
     [outputStream write:[data bytes] maxLength:[data length]];
-    data= [ViewController makeCommandForGPIO:32 withDirection:"output" andValue:0];
+    data= [ViewController makeCommandFor:GPIO Number:32 andValue:0];
     [outputStream write:[data bytes] maxLength:[data length]];
-    data= [ViewController makeCommandForGPIO:33 withDirection:"output" andValue:0];
+    data= [ViewController makeCommandFor:GPIO Number:33 andValue:0];
     [outputStream write:[data bytes] maxLength:[data length]];
 }
 
-+(NSData*)makeCommandForPwm:(int)pwm withDuty:(int)duty andPeriod:(int)period
++(NSData*)makeCommandFor:(int)port Number:(int)number andValue:(int)value
 {
-    NSString *response  = [NSString stringWithFormat:@"set pwm%d duty:%d period:%d\n",pwm, duty,period];
-    NSLog(response);
-    NSData *nsData = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
-    return nsData;
-}
-
-+(NSData*)makeCommandForGPIO:(int)gpio withDirection:(char*)direction andValue:(int)value
-{
-    NSString *response  = [NSString stringWithFormat:@"set con%d %s:%d\n",gpio, direction,value];
-    NSLog(response);
-    NSData *nsData = [[NSData alloc] initWithData:[response dataUsingEncoding:NSASCIIStringEncoding]];
-    return nsData;
+    if(port==0)
+        NSLog([NSString stringWithFormat:@"set pwm%d duty:%d period:%d\n",number, value]);
+    else
+        NSLog([NSString stringWithFormat:@"set con%d output:%d\n",number, value]);
+    NSMutableData *typedata = [NSMutableData dataWithBytes: &port length: 1];
+    NSMutableData *numberdata = [NSMutableData dataWithBytes: &number length: 1];
+    NSData *valuedata = [NSData dataWithBytes: &value length: 2];
+    [numberdata appendData:valuedata];
+    [typedata appendData:numberdata];
+    return typedata;
 }
 
 - (void)timerFireMethod
 {
     int ncam_x=cam_x + 500*(self->_LeftAS.xValue)*-1;
-    if(ncam_x<=140000&&ncam_x>=12000) cam_x=ncam_x;
-    NSData *data= [ViewController makeCommandForPwm:1 withDuty:cam_x andPeriod:476190];
+    if(ncam_x<=65000&&ncam_x>=16000) cam_x=ncam_x;
+    NSData *data= [ViewController makeCommandFor:PWM Number:1 andValue:cam_x];;
     [outputStream write:[data bytes] maxLength:[data length]];
     int ncam_y=cam_y + 500*(self->_LeftAS.yValue);
-    if(ncam_y<=52000&&ncam_y>=19000) cam_y=ncam_y;
-    data= [ViewController makeCommandForPwm:0 withDuty:cam_y andPeriod:476190];
+    if(ncam_y<=56000&&ncam_y>=19000) cam_y=ncam_y;
+    data= [ViewController makeCommandFor:PWM Number:0 andValue:cam_y];;
     [outputStream write:[data bytes] maxLength:[data length]];
 }
+
 @end
