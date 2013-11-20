@@ -31,8 +31,8 @@ int GPIO = 1;
     cam_y = 38540;
     
     /* Make these constant for now, later tutorials will change them */
-    media_width = 320;
-    media_height = 240;
+    media_width = 640;
+    media_height = 480;
     gst_backend = [[GStreamerBackend alloc] init:self videoView:video_view];
     printf("viewDidLoad");
 }
@@ -50,7 +50,7 @@ int GPIO = 1;
     // Create socket pair:
     CFReadStreamRef readStream;
     CFWriteStreamRef writeStream;
-//    CFStringRef remoteHost = CFSTR("178.236.245.50");
+    //    CFStringRef remoteHost = CFSTR("178.236.245.50");
     CFStringRef remoteHost = CFSTR("192.168.2.1");
     CFStreamCreatePairWithSocketToHost(NULL, remoteHost, 4444, &readStream, &writeStream);
     inputStream = (__bridge_transfer NSInputStream *)readStream;
@@ -86,10 +86,10 @@ int GPIO = 1;
 {
     CGFloat view_width = video_container_view.bounds.size.width;
     CGFloat view_height = video_container_view.bounds.size.height;
-
+    
     CGFloat correct_height = view_width * media_height / media_width;
     CGFloat correct_width = view_height * media_width / media_height;
-
+    
     if (correct_height < view_height) {
         video_height_constraint.constant = correct_height;
         video_width_constraint.constant = view_width;
@@ -128,11 +128,12 @@ int GPIO = 1;
     if(_timer.isValid)
     {
         if(self->_LeftAS.xValue==0&&self->_LeftAS.yValue==0)
-           [_timer invalidate];
+            [_timer invalidate];
     }
     else
     {
-        _timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(timerFireMethod) userInfo:NULL repeats:true];
+        if(self->_LeftAS.xValue!=0&&self->_LeftAS.yValue!=0)
+            _timer = [NSTimer scheduledTimerWithTimeInterval:0.04 target:self selector:@selector(timerFireMethod) userInfo:NULL repeats:true];
     }
 }
 
@@ -194,7 +195,7 @@ int GPIO = 1;
 +(NSData*)makeCommandFor:(int)port Number:(int)number andValue:(int)value
 {
     if(port==0)
-        NSLog([NSString stringWithFormat:@"set pwm%d duty:%d period:%d\n",number, value]);
+        NSLog([NSString stringWithFormat:@"set pwm%d duty:%d period:476190\n",number, value]);
     else
         NSLog([NSString stringWithFormat:@"set con%d output:%d\n",number, value]);
     NSMutableData *typedata = [NSMutableData dataWithBytes: &port length: 1];
@@ -207,11 +208,11 @@ int GPIO = 1;
 
 - (void)timerFireMethod
 {
-    int ncam_x=cam_x + 500*(self->_LeftAS.xValue)*-1;
+    int ncam_x=cam_x + 400*(self->_LeftAS.xValue)*-1;
     if(ncam_x<=65000&&ncam_x>=16000) cam_x=ncam_x;
     NSData *data= [ViewController makeCommandFor:PWM Number:1 andValue:cam_x];;
     [outputStream write:[data bytes] maxLength:[data length]];
-    int ncam_y=cam_y + 500*(self->_LeftAS.yValue);
+    int ncam_y=cam_y + 400*(self->_LeftAS.yValue);
     if(ncam_y<=56000&&ncam_y>=19000) cam_y=ncam_y;
     data= [ViewController makeCommandFor:PWM Number:0 andValue:cam_y];;
     [outputStream write:[data bytes] maxLength:[data length]];
