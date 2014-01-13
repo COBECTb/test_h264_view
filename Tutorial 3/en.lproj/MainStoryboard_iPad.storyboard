@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="4511" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="z7O-8l-Zeo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="4511" systemVersion="13B42" targetRuntime="iOS.CocoaTouch.iPad" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="z7O-8l-Zeo">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <development version="4600" identifier="xcode"/>
@@ -11,29 +11,59 @@
             <objects>
                 <viewController id="z7O-8l-Zeo" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CqS-Gu-I1O">
-                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xWd-bg-0b6" userLabel="VideoContainer">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="939"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="683"/>
                                 <subviews>
                                     <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="6tN-97-YoQ" userLabel="Video" customClass="EaglUIView">
-                                        <rect key="frame" x="224" y="350" width="320" height="240"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="684"/>
+                                        <subviews>
+                                            <view contentMode="bottomRight" translatesAutoresizingMaskIntoConstraints="NO" id="K7z-5Z-8o1" userLabel="RPad" customClass="JSDPad">
+                                                <rect key="frame" x="874" y="534" width="100" height="100"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" type="user" id="9nn-9X-Bet"/>
+                                                    <constraint firstAttribute="height" constant="100" type="user" id="iyO-oH-nA9"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="delegate" destination="z7O-8l-Zeo" id="BYr-4b-gnu"/>
+                                                </connections>
+                                            </view>
+                                            <view contentMode="bottomLeft" translatesAutoresizingMaskIntoConstraints="NO" id="kT7-iq-g1Q" userLabel="LAnalogue Stick" customClass="JSAnalogueStick">
+                                                <rect key="frame" x="50" y="534" width="100" height="100"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" type="user" id="KzH-uG-iQw"/>
+                                                    <constraint firstAttribute="height" constant="100" type="user" id="aY4-LH-DBI"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="delegate" destination="z7O-8l-Zeo" id="uv6-yN-6PO"/>
+                                                </connections>
+                                            </view>
+                                        </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="240" type="user" id="A9A-eK-7QX"/>
-                                            <constraint firstAttribute="width" constant="320" type="user" id="xcj-6M-2KJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="K7z-5Z-8o1" secondAttribute="top" constant="150" type="user" id="9Tg-sN-I2q"/>
+                                            <constraint firstAttribute="trailing" secondItem="K7z-5Z-8o1" secondAttribute="leading" constant="150" type="user" id="LRA-l4-7hR"/>
+                                            <constraint firstItem="kT7-iq-g1Q" firstAttribute="leading" secondItem="6tN-97-YoQ" secondAttribute="leading" constant="50" type="user" id="fKk-qP-oWz"/>
+                                            <constraint firstAttribute="bottom" secondItem="kT7-iq-g1Q" secondAttribute="top" constant="150" type="user" id="gIi-xa-clr"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerY" secondItem="6tN-97-YoQ" secondAttribute="centerY" type="user" id="UYa-oM-cdf"/>
+                                    <constraint firstItem="6tN-97-YoQ" firstAttribute="top" secondItem="xWd-bg-0b6" secondAttribute="top" type="user" id="RX6-dL-lN7"/>
+                                    <constraint firstItem="6tN-97-YoQ" firstAttribute="leading" secondItem="xWd-bg-0b6" secondAttribute="leading" type="user" id="hUp-OY-BMe"/>
+                                    <constraint firstAttribute="centerY" secondItem="6tN-97-YoQ" secondAttribute="centerY" type="user" id="rz9-nH-cdY"/>
                                     <constraint firstAttribute="centerX" secondItem="6tN-97-YoQ" secondAttribute="centerX" type="user" id="w9H-W0-MfF"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Initializing..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="728" translatesAutoresizingMaskIntoConstraints="NO" id="iLX-h1-Ko5" userLabel="Message">
-                                <rect key="frame" x="20" y="939" width="728" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Initializing..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="984" translatesAutoresizingMaskIntoConstraints="NO" id="iLX-h1-Ko5" userLabel="Message">
+                                <rect key="frame" x="20" y="683" width="984" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" type="user" id="7Z8-1b-Y41"/>
                                     <constraint firstAttribute="height" constant="21" type="user" id="jAS-RD-k2d"/>
@@ -43,7 +73,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MUi-CE-Ydy">
-                                <rect key="frame" x="0.0" y="960" width="768" height="44"/>
+                                <rect key="frame" x="0.0" y="704" width="1024" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" type="user" id="EwL-Ma-A4v"/>
                                 </constraints>
@@ -76,16 +106,17 @@
                             <constraint firstAttribute="trailing" secondItem="iLX-h1-Ko5" secondAttribute="trailing" constant="20" symbolic="YES" type="user" id="ruI-5P-l7I"/>
                             <constraint firstItem="MUi-CE-Ydy" firstAttribute="bottom" secondItem="CqS-Gu-I1O" secondAttribute="bottom" constant="20" symbolic="YES" type="user" id="w6K-xy-EJe"/>
                         </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="LeftAS" destination="kT7-iq-g1Q" id="T9n-YP-Zzu"/>
+                        <outlet property="RightPad" destination="K7z-5Z-8o1" id="At6-eb-p9E"/>
                         <outlet property="message_label" destination="iLX-h1-Ko5" id="Q0Y-3J-zis"/>
                         <outlet property="pause_button" destination="J3O-8j-Tkt" id="Dls-sg-FPm"/>
                         <outlet property="play_button" destination="UlF-Ga-2VX" id="243-yq-GEe"/>
                         <outlet property="video_container_view" destination="xWd-bg-0b6" id="7dL-Mp-QGc"/>
-                        <outlet property="video_height_constraint" destination="A9A-eK-7QX" id="rMe-ze-8l5"/>
                         <outlet property="video_view" destination="6tN-97-YoQ" id="Q0n-dR-hqv"/>
-                        <outlet property="video_width_constraint" destination="xcj-6M-2KJ" id="oTt-9z-KCW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iRS-GG-bR6" sceneMemberID="firstResponder"/>

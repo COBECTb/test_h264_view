@@ -123,8 +123,8 @@ int GPIO = 1;
 
 - (void)analogueStickDidChangeValue:(JSAnalogueStick *)analogueStick
 {
-    NSLog([NSString stringWithFormat:@"Left: %.1f", self->_LeftAS.xValue]);
-    NSLog([NSString stringWithFormat:@"Left: %.1f", self->_LeftAS.yValue]);
+//    NSLog([NSString stringWithFormat:@"Left: %.1f", self->_LeftAS.xValue]);
+//    NSLog([NSString stringWithFormat:@"Left: %.1f", self->_LeftAS.yValue]);
     if(_timer.isValid)
     {
         if(self->_LeftAS.xValue==0&&self->_LeftAS.yValue==0)

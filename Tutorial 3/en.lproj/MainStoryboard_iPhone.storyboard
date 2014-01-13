@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="4511" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="kYn-Hr-MJq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="4511" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="kYn-Hr-MJq">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <development version="4600" identifier="xcode"/>
@@ -14,26 +14,14 @@
                         <rect key="frame" x="0.0" y="20" width="568" height="300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="0dR-Db-Wxo" userLabel="VideoContainer">
-                                <rect key="frame" x="0.0" y="0.0" width="568" height="236"/>
+                            <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="0dR-Db-Wxo" userLabel="VideoContainer">
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="300"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SOq-m6-bct" userLabel="Video" customClass="EaglUIView">
                                         <rect key="frame" x="0.0" y="0.0" width="568" height="300"/>
                                         <subviews>
-                                            <view contentMode="bottomRight" translatesAutoresizingMaskIntoConstraints="NO" id="CJN-S6-5I0" userLabel="RPad" customClass="JSDPad">
-                                                <rect key="frame" x="399" y="152" width="100" height="100"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="100" type="user" id="Gkg-N1-fXu"/>
-                                                    <constraint firstAttribute="height" constant="100" type="user" id="bHo-l8-Ux1"/>
-                                                </constraints>
-                                                <connections>
-                                                    <outlet property="delegate" destination="kYn-Hr-MJq" id="TUa-Z6-QOT"/>
-                                                </connections>
-                                            </view>
                                             <view contentMode="bottomLeft" translatesAutoresizingMaskIntoConstraints="NO" id="LSo-gr-oLa" userLabel="LAnalogue Stick" customClass="JSAnalogueStick">
-                                                <rect key="frame" x="61" y="152" width="100" height="100"/>
+                                                <rect key="frame" x="35" y="150" width="100" height="100"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -44,28 +32,41 @@
                                                     <outlet property="delegate" destination="kYn-Hr-MJq" id="Ywa-N0-8IB"/>
                                                 </connections>
                                             </view>
+                                            <view contentMode="bottomRight" translatesAutoresizingMaskIntoConstraints="NO" id="CJN-S6-5I0" userLabel="RPad" customClass="JSDPad">
+                                                <rect key="frame" x="435" y="150" width="100" height="100"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" type="user" id="Gkg-N1-fXu"/>
+                                                    <constraint firstAttribute="height" constant="100" type="user" id="bHo-l8-Ux1"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="delegate" destination="kYn-Hr-MJq" id="TUa-Z6-QOT"/>
+                                                </connections>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="LSo-gr-oLa" firstAttribute="top" secondItem="SOq-m6-bct" secondAttribute="top" constant="152" type="user" id="7Sr-ae-yYf"/>
-                                            <constraint firstItem="LSo-gr-oLa" firstAttribute="centerY" secondItem="CJN-S6-5I0" secondAttribute="centerY" type="user" id="Tr4-e6-s4j"/>
-                                            <constraint firstItem="LSo-gr-oLa" firstAttribute="leading" secondItem="SOq-m6-bct" secondAttribute="leading" constant="61" type="user" id="YVR-Ac-ded"/>
-                                            <constraint firstAttribute="trailing" secondItem="CJN-S6-5I0" secondAttribute="leading" constant="169" type="user" id="iPE-w2-Pe9"/>
+                                            <constraint firstItem="LSo-gr-oLa" firstAttribute="leading" secondItem="SOq-m6-bct" secondAttribute="leading" constant="35" id="BsJ-Qo-tit"/>
+                                            <constraint firstAttribute="trailing" secondItem="CJN-S6-5I0" secondAttribute="leading" constant="133" type="user" id="JiQ-dr-qHl"/>
+                                            <constraint firstAttribute="bottom" secondItem="CJN-S6-5I0" secondAttribute="bottom" constant="50" type="user" id="OSz-SN-em3"/>
+                                            <constraint firstAttribute="bottom" secondItem="LSo-gr-oLa" secondAttribute="top" constant="150" type="user" id="u1Y-d4-eYR"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="SOq-m6-bct" firstAttribute="top" secondItem="0dR-Db-Wxo" secondAttribute="top" type="default" id="FmE-5H-70B"/>
-                                    <constraint firstItem="SOq-m6-bct" firstAttribute="leading" secondItem="0dR-Db-Wxo" secondAttribute="leading" type="default" id="HQS-w7-Yj7"/>
-                                    <constraint firstAttribute="bottom" secondItem="SOq-m6-bct" secondAttribute="bottom" constant="-64" type="user" id="aRD-dM-Ee8"/>
-                                    <constraint firstAttribute="centerX" secondItem="SOq-m6-bct" secondAttribute="centerX" type="user" id="def-5s-UHV"/>
+                                    <constraint firstAttribute="centerY" secondItem="SOq-m6-bct" secondAttribute="centerY" type="user" id="GAV-N4-wuP"/>
+                                    <constraint firstItem="SOq-m6-bct" firstAttribute="top" secondItem="0dR-Db-Wxo" secondAttribute="top" type="user" id="Hq0-8G-y6T"/>
+                                    <constraint firstItem="SOq-m6-bct" firstAttribute="leading" secondItem="0dR-Db-Wxo" secondAttribute="leading" type="user" id="bde-Lq-n0M"/>
+                                    <constraint firstAttribute="centerX" secondItem="SOq-m6-bct" secondAttribute="centerX" type="user" id="pQJ-sq-OeG"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Initializing..." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="528" translatesAutoresizingMaskIntoConstraints="NO" id="8wd-E5-Owx" userLabel="Message">
-                                <rect key="frame" x="20" y="236" width="528" height="20"/>
+                                <rect key="frame" x="20" y="240" width="528" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="20" type="user" id="Tl1-Z3-XQB"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" type="user" id="WIW-Im-XnF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -73,8 +74,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <toolbar clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o22-1p-nvT">
-                                <rect key="frame" x="0.0" y="256" width="568" height="44"/>
+                                <rect key="frame" x="0.0" y="260" width="568" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" type="user" id="Ek5-IN-yM3"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="BPU-1t-gy3"/>
                                     <barButtonItem systemItem="play" id="6LZ-7a-xKf">
@@ -94,16 +98,17 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="8wd-E5-Owx" firstAttribute="bottom" secondItem="o22-1p-nvT" secondAttribute="top" constant="8" symbolic="YES" type="user" id="CHF-CI-6CL"/>
-                            <constraint firstItem="8wd-E5-Owx" firstAttribute="top" secondItem="0dR-Db-Wxo" secondAttribute="bottom" type="user" id="IMP-UH-PGT"/>
+                            <constraint firstItem="o22-1p-nvT" firstAttribute="trailing" secondItem="0dR-Db-Wxo" secondAttribute="trailing" type="default" id="8rF-9a-WH2"/>
+                            <constraint firstItem="o22-1p-nvT" firstAttribute="top" secondItem="8wd-E5-Owx" secondAttribute="bottom" type="default" id="Bgq-Ps-8IA"/>
+                            <constraint firstAttribute="centerX" secondItem="0dR-Db-Wxo" secondAttribute="centerX" type="user" id="FIh-ra-74t"/>
                             <constraint firstItem="0dR-Db-Wxo" firstAttribute="trailing" secondItem="JOS-rK-Hts" secondAttribute="trailing" type="user" id="MMJ-ra-NNH"/>
-                            <constraint firstAttribute="trailing" secondItem="8wd-E5-Owx" secondAttribute="trailing" constant="20" symbolic="YES" type="user" id="WDw-jT-tbz"/>
-                            <constraint firstItem="o22-1p-nvT" firstAttribute="leading" secondItem="JOS-rK-Hts" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="Zvb-2h-v7A"/>
+                            <constraint firstItem="0dR-Db-Wxo" firstAttribute="bottom" secondItem="o22-1p-nvT" secondAttribute="bottom" type="default" id="S9c-Eo-7V5"/>
+                            <constraint firstAttribute="centerY" secondItem="0dR-Db-Wxo" secondAttribute="centerY" type="user" id="Yma-Tm-Y43"/>
                             <constraint firstItem="0dR-Db-Wxo" firstAttribute="leading" secondItem="JOS-rK-Hts" secondAttribute="leading" type="user" id="bfN-MR-7nC"/>
-                            <constraint firstItem="o22-1p-nvT" firstAttribute="bottom" secondItem="JOS-rK-Hts" secondAttribute="bottom" constant="20" symbolic="YES" type="user" id="l3D-e3-Z7R"/>
-                            <constraint firstItem="8wd-E5-Owx" firstAttribute="leading" secondItem="JOS-rK-Hts" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="lwj-ty-IXl"/>
-                            <constraint firstItem="o22-1p-nvT" firstAttribute="trailing" secondItem="JOS-rK-Hts" secondAttribute="trailing" constant="20" symbolic="YES" type="user" id="mL0-QH-ra6"/>
-                            <constraint firstItem="0dR-Db-Wxo" firstAttribute="top" secondItem="JOS-rK-Hts" secondAttribute="top" type="user" id="qsc-BJ-NM7"/>
+                            <constraint firstItem="o22-1p-nvT" firstAttribute="centerX" secondItem="8wd-E5-Owx" secondAttribute="centerX" type="default" id="jmI-ie-EiV"/>
+                            <constraint firstItem="0dR-Db-Wxo" firstAttribute="top" secondItem="JOS-rK-Hts" secondAttribute="top" type="user" id="oIS-pp-0D1"/>
+                            <constraint firstItem="o22-1p-nvT" firstAttribute="leading" secondItem="0dR-Db-Wxo" secondAttribute="leading" type="default" id="oIZ-2u-fZD"/>
+                            <constraint firstItem="8wd-E5-Owx" firstAttribute="leading" secondItem="JOS-rK-Hts" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="pgu-GT-AuM"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
